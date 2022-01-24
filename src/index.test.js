@@ -22,7 +22,7 @@ require('async/dist/async.js');
 require('esn-frontend-mailto-handler/src/index.js');
 require('angular-mocks/angular-mocks.js');
 
-require('./app/app.js');
+require('./app.module.js');
 
 require('../test/config/mocks/injector.js');
 require('../test/config/mocks/modules.js');

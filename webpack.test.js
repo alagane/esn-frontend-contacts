@@ -32,8 +32,7 @@ module.exports = merge(commonWebpackConfig, {
         loader: 'ignore-loader',
         include: [
           path.resolve(__dirname, 'node_modules/esn-frontend-common-libs/src/frontend/js/modules/i18n/i18n.run.js'),
-          path.resolve(__dirname, 'node_modules/esn-frontend-common-libs/src/frontend/js/modules/datetime/datetime.run.js'),
-          path.resolve(__dirname, 'src/linagora.esn.contact/app/search/search.run.js')
+          path.resolve(__dirname, 'node_modules/esn-frontend-common-libs/src/frontend/js/modules/datetime/datetime.run.js')
         ]
       }
     ]

@@ -1,9 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // default: we are building an SPA
 const commonLibsPath = path.resolve(__dirname, 'node_modules', 'esn-frontend-common-libs');
@@ -38,7 +36,6 @@ module.exports = {
     new Dotenv({ systemvars: true }),
     new webpack.IgnorePlugin({ resourceRegExp: /codemirror/ }), // for summernote
     new webpack.IgnorePlugin({ resourceRegExp: /^\.\/locale$/, contextRegExp: /moment$/ }),
-    new webpack.IgnorePlugin({ resourceRegExp: /openpaas\.js$/, contextRegExp: /env$/ }),
     new webpack.ProvidePlugin({
       jQuery: 'jquery',
       $: 'jquery',
@@ -59,34 +56,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './assets/index.pug',
       filename: '../index.html'
-    }),
-    new FaviconsWebpackPlugin({
-      logo: './src/linagora.esn.contact/images/contacts-icon.svg',
-      prefix: 'favicon/'
-    }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.resolve(__dirname, 'node_modules', 'openpaas-auth-client', 'src', 'assets'),
-          to: 'auth'
-        },
-        {
-          from: path.resolve(__dirname, 'node_modules', 'oidc-client', 'dist', 'oidc-client.min.js'),
-          to: 'auth'
-        },
-        {
-          from: path.resolve(__dirname, 'env', 'openpaas.js'),
-          to: 'env'
-        },
-        {
-          from: path.resolve(__dirname, 'src', 'linagora.esn.contact', 'images'),
-          to: 'images'
-        },
-        {
-          from: path.resolve(__dirname, 'node_modules', 'socket.io-client', 'dist', 'socket.io.js'),
-          to: 'socket.io/socket.io.js'
-        }
-      ]
     })
   ],
   devServer: {
@@ -183,49 +152,8 @@ module.exports = {
           exposes: '$'
         }
       },
-      {
-        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]'
-            }
-          }
-        ]
-      },
-      {
-        test: /all\.less$/,
-        use: [
-          {
-            loader: 'style-loader' // creates style nodes from JS strings
-          },
-          {
-            loader: 'css-loader' // translates CSS into CommonJS
-          },
-          {
-            loader: 'less-loader', // compiles Less to CSS
-            options: {
-              lessOptions: {
-                javascriptEnabled: true
-              }
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: 'images'
-            }
-          }
-        ]
-      },
       /*
-      * for the "index.html" file of this SPA.
+      * for the "index.html" file of this library.
       *
       */
       {
