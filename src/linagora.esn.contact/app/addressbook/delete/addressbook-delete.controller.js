@@ -1,6 +1,6 @@
 'use strict';
 
-require('../../../../esn.contact.libs/app/addressBook/addressbook-display.service.js');
+require('esn-frontend-contacts-libs/src/addressBook/addressbook-display.service.js');
 
 angular.module('linagora.esn.contact')
   .controller('ContactAddressbookDeleteController', ContactAddressbookDeleteController);

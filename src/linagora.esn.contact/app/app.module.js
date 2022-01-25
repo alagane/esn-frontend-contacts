@@ -52,7 +52,7 @@ angular.module('linagora.esn.contact', [
   'esn.contact.libs'
 ]);
 
-require('../../esn.contact.libs/app/app.module.js');
+require('esn-frontend-contacts-libs/src/app.module.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/core.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/esn.router.js');
 require('esn-frontend-common-libs/src/frontend/js/modules/session.js');

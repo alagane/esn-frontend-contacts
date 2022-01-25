@@ -15,6 +15,7 @@
   "license": "aGPLv3",
   "dependencies": {
     "esn-frontend-common-libs": "github:linagora/esn-frontend-common-libs#main",
+    "esn-frontend-contacts-libs": "github:linagora/esn-frontend-contacts-libs#main",
     "esn-frontend-mailto-handler": "github:linagora/esn-frontend-mailto-handler#main",
     "esn-dav-import-client": "github:linagora/esn-dav-import-client#main"
   },
